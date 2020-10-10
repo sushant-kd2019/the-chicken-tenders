@@ -3,7 +3,11 @@ import ResponsiveDrawer from "../../Components/SideBar/SideBar";
 
 function Dash() {
 	return (
-		<div>
+		<div
+			style={{
+				backgroundColor: "#F5F6FA",
+			}}
+		>
 			<ResponsiveDrawer />
 		</div>
 	);
