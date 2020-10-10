@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import {
+	BrowserRouter,
+	Route,
+	Switch,
+	withRouter,
+	Redirect,
+} from "react-router-dom";
+import Login from "./Screens/authentication/Login/Login";
+import Signup from "./Screens/authentication/Signup/Signup";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	let routes = (
+		<BrowserRouter>
+			<Switch>
+				<Route path="/login" render={(props) => <Login />} />
+				<Route path="/signup" render={(props) => <Signup />} />
+			</Switch>
+		</BrowserRouter>
+	);
+	return <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>;
 }
 
 export default App;
