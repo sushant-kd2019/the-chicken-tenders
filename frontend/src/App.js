@@ -9,6 +9,7 @@ import {
 import Login from "./Screens/authentication/Login/Login";
 import Signup from "./Screens/authentication/Signup/Signup";
 import Dash from "./Screens/Dasboard/Dash";
+import CourseC from "./Components/CourseCard/CourseC";
 import "./App.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 				<Route path="/login" render={(props) => <Login />} />
 				<Route path="/signup" render={(props) => <Signup />} />
 				<Route path="/dashboard" render={(props) => <Dash />} />
+				<Route path="/courseC" render={(props) => <CourseC />} />
 			</Switch>
 		</BrowserRouter>
 	);

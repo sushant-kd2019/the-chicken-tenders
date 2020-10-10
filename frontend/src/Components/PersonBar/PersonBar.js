@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
@@ -16,8 +19,10 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import PersonIcon from "@material-ui/icons/Person";
 import styles from "./person.module.css";
-import Card from "../Card/Card";
-
+import Card from "../CourseCard/CourseC";
+import useKeypress from "../../hooks/useKeypress";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
+import InlineEdit from "../InlineEditable/InlineEditable";
 const drawerWidth = 220;
 
 const useStyles = makeStyles((theme) => ({
@@ -45,18 +50,43 @@ const useStyles = makeStyles((theme) => ({
 		flexGrow: 1,
 		padding: theme.spacing(3),
 	},
+	modal: {
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+	},
+	paper: {
+		backgroundColor: theme.palette.background.paper,
+		borderRadius: "2%",
+		boxShadow: theme.shadows[5],
+		padding: theme.spacing(2, 4, 3),
+		minWidth: "70vw",
+		minHeight: "90vh",
+		outline: "none",
+	},
 }));
 
 function ResponsiveDrawer(props, { data }) {
 	const { window } = props;
 	const classes = useStyles();
 	const theme = useTheme();
+	const [open, setOpen] = React.useState(false);
 	const [mobileOpen, setMobileOpen] = React.useState(false);
-	console.log(props.data);
+	const [storedText, setStoredText] = useState(
+		"Here's some more, edit away!"
+	);
+	const [storedHeading, setStoredHeading] = useState("Course_Name");
+	console.log(storedText);
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
 	};
+	const handleOpen = () => {
+		setOpen(true);
+	};
 
+	const handleClose = () => {
+		setOpen(false);
+	};
 	const drawer = (
 		<div>
 			{/* <div className={classes.toolbar} /> */}
@@ -70,15 +100,15 @@ function ResponsiveDrawer(props, { data }) {
 			</div>
 		</div>
 	);
-
 	const container =
 		window !== undefined ? () => window().document.body : undefined;
 	var k = 1;
 	if (props.data == true && k == 1) {
 		handleDrawerToggle();
-		console.log("toggle");
-		k = 0;
+		console.log(k);
+		return;
 	}
+
 	return (
 		<div className={classes.root}>
 			<CssBaseline />
@@ -115,11 +145,44 @@ function ResponsiveDrawer(props, { data }) {
 				</Hidden>
 			</nav>
 			<main className={styles.main}>
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
+				<Card toggleModal={handleOpen} />
+				<Card toggleModal={handleOpen} />
+				<Card toggleModal={handleOpen} />
+				<Card toggleModal={handleOpen} />
+				<Card toggleModal={handleOpen} />
+				<Modal
+					aria-labelledby="transition-modal-title"
+					aria-describedby="transition-modal-description"
+					className={classes.modal}
+					open={open}
+					onClose={handleClose}
+					closeAfterTransition
+					BackdropComponent={Backdrop}
+					BackdropProps={{
+						timeout: 500,
+					}}
+				>
+					<Fade in={open}>
+						<div className={classes.paper}>
+							<h2
+								style={{
+									border: "none",
+									outline: "none",
+									fontSize: "5vh",
+								}}
+							>
+								<InlineEdit
+									text={storedHeading}
+									onSetText={(text) => setStoredHeading(text)}
+								/>
+							</h2>
+							<InlineEdit
+								text={storedText}
+								onSetText={(text) => setStoredText(text)}
+							/>
+						</div>
+					</Fade>
+				</Modal>
 			</main>
 		</div>
 	);
