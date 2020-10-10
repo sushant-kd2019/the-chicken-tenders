@@ -40,8 +40,23 @@ const BorderLinearProgress = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		maxWidth: 315,
+		minWidth: 270,
+		margin: "2%",
 		borderRadius: "7%",
+	},
+	root1: {
+		display: "flex",
+		"& > *": {
+			margin: theme.spacing(1),
+		},
+	},
+	small: {
+		width: theme.spacing(3),
+		height: theme.spacing(3),
+	},
+	large: {
+		width: theme.spacing(9),
+		height: theme.spacing(9),
 	},
 	media: {
 		height: 0,
@@ -151,7 +166,7 @@ export default function RecipeReviewCard() {
 					avatar={<ScheduleIcon />}
 					label="X courses left"
 					style={{
-						marginLeft: "25%",
+						marginRight: "2%",
 					}}
 				/>
 			</CardActions>
