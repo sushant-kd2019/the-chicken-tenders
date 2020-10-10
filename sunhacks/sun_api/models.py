@@ -3,8 +3,8 @@ from Users.models import User
 
 # Create your models here.
 
-class User(User):
-    pass
+#class User(User):
+#    pass
 
 class Roadmap(models.Model):
     creator=models.ForeignKey(User,to_field='username',on_delete=models.CASCADE)
