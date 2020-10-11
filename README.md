@@ -4,9 +4,9 @@ Project Repository for SunHacks'20
 # Created By # the-chicken-tenders 
 Project Repository for  SunHacks'20
 #Problem Statement:
-Online Learning has revolutionized the way people learn today. Quite unlike the days when learning stopped ; stepping out of university, today there's an endless number of courses available on the intemet.. Yet one of the repercussions of online courses being so accessible is: Its adding to students dilemma on which courses to follow and which not to. Quite often, people who set out to master some domain, encounter this problem, where they're unable to decide which courses to take and which to drop. It is also possible they may take get stuck in this infinite regress, from one course to another; and not grow at all. 
+Online Learning has revolutionized the way people learn today. Quite unlike the days when learning stopped ; stepping out of university, today there's an endless number of courses available on the intemet.. Yet one of the repercussions of online courses being so accessible is: Its adding to students dilemma on which courses to follow and which not to. Quite often, people who set out to master some domain, encounter this problem, where they're unable to decide which courses to take and which to drop. It is also possible they may get stuck in this infinite regress, from one course to another; and not grow at all. 
 # Aim
-Our project aims to solve simply this. We strongly believe every individual should have equal opportunity to learn and grow. 
+Our project aims to solve the problem. We strongly believe every individual should have equal opportunity to learn and grow. 
 
 # What is your project?
 The Minerva Project acts as a community driven page to create and share roadmaps to become domain experts in the fastest manner possible.
