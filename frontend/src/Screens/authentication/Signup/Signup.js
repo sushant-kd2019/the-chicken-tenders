@@ -12,6 +12,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { createMuiTheme, withStyles } from "@material-ui/core/styles";
+import { green, purple, lightBlue } from "@material-ui/core/colors";
 function Copyright() {
 	return (
 		<Typography variant="body2" color="textSecondary" align="center">
@@ -26,7 +28,7 @@ function Copyright() {
 }
 const useStyles = makeStyles((theme) => ({
 	paper: {
-		marginTop: theme.spacing(8),
+		marginTop: theme.spacing(0),
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
@@ -43,15 +45,22 @@ const useStyles = makeStyles((theme) => ({
 		margin: theme.spacing(3, 0, 2),
 	},
 }));
+const ColorButton = withStyles((theme) => ({
+	root: {
+		color: theme.palette.getContrastText(purple[500]),
+		backgroundColor: lightBlue[300],
+		"&:hover": {
+			backgroundColor: lightBlue[500],
+		},
+	},
+}))(Button);
+
 export default function SignIn() {
 	const classes = useStyles();
 	return (
 		<Container component="main" maxWidth="xs">
 			<CssBaseline />
 			<div className={classes.paper}>
-				<Avatar className={classes.avatar}>
-					<LockOutlinedIcon />
-				</Avatar>
 				<Typography component="h1" variant="h5">
 					Sign Up
 				</Typography>
@@ -79,7 +88,7 @@ export default function SignIn() {
 						autoComplete="current-password"
 					/>
 
-					<Button
+					<ColorButton
 						type="submit"
 						fullWidth
 						variant="contained"
@@ -87,8 +96,13 @@ export default function SignIn() {
 						className={classes.submit}
 					>
 						Sign Up
-					</Button>
+					</ColorButton>
 				</form>
+				<Grid item zeroMinWidth>
+					<Link href="/login" variant="body2">
+						{"Already have an account? Login"}
+					</Link>
+				</Grid>
 			</div>
 			<Box mt={8}>
 				<Copyright />
