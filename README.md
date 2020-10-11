@@ -30,3 +30,5 @@ If you want to see backend =>
 2. Write "py -m pip install --user virtualenv" and then "py -m venv env" into terminal to create virtual environment
 3. Write "env\Scripts\activate" to run virtual environment.
 4. Write pip install -r requirements.txt
+
+# Work in progress
