@@ -1,6 +1,9 @@
-# the-chicken-tenders
+# the-minerva-project
 
 Project Repository for SunHacks'20
+# Created By 
+
+The Chicken Tenders
 
 # Aim
 Our project aims to not leave anyone out from resources which are available on the internet. Every individual should have equal opportunity to have resources learn and grow.
