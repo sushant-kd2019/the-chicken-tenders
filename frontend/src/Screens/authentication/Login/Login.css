@@ -1,0 +1,18 @@
+.xyz {
+    height: 100vh;
+}
+
+.makeStyles-paper-1 {
+    border-radius: 1%;
+    background-color: white;
+}
+
+.MuiButtonBase-root {
+    background-color: green;
+}
+
+.MuiTypography-root {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+}
