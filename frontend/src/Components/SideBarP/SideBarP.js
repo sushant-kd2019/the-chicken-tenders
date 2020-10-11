@@ -9,8 +9,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
-import Link from "@material-ui/core/Link";
 import Fade from "@material-ui/core/Fade";
+import Link from "@material-ui/core/Link";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -21,13 +21,12 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import ResponsiveDrawer from "../PersonBar/PersonBar";
+import ResponsiveDrawer from "../PersonBarP/PersonBarP";
 import PersonIcon from "@material-ui/icons/Person";
 import AddIcon from "@material-ui/icons/Add";
-import AddComp from "../AddComp/AddComp";
+import HomeIcon from "@material-ui/icons/Home";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import PeopleIcon from "@material-ui/icons/People";
-import HomeIcon from "@material-ui/icons/Home";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -255,6 +254,7 @@ export default function MiniDrawer() {
 						<ListItemText primary="Logout" />
 					</ListItem>
 				</List>
+
 				<Modal
 					aria-labelledby="transition-modal-title"
 					aria-describedby="transition-modal-description"
@@ -268,9 +268,7 @@ export default function MiniDrawer() {
 					}}
 				>
 					<Fade in={courseOpen}>
-						<div className={classes.paper}>
-							<AddComp />
-						</div>
+						<div className={classes.paper}></div>
 					</Fade>
 				</Modal>
 			</Drawer>

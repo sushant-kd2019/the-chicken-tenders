@@ -6,6 +6,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -26,6 +27,8 @@ import AddIcon from "@material-ui/icons/Add";
 import AddComp from "../AddComp/AddComp";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import PeopleIcon from "@material-ui/icons/People";
+
+import HomeIcon from "@material-ui/icons/Home";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -201,18 +204,40 @@ export default function MiniDrawer() {
 					onMouseEnter={handleDrawerOpen}
 					onMouseLeave={handleDrawerClose}
 				>
+					<Link
+						href="/dashboard"
+						style={{
+							textDecoration: "none",
+							cursor: "pointer",
+						}}
+					>
+						<ListItem button key="Dashboard">
+							<ListItemIcon>
+								<HomeIcon />
+							</ListItemIcon>
+							<ListItemText primary="Dashboard" />
+						</ListItem>
+					</Link>
 					<ListItem button key="Roadmap">
 						<ListItemIcon>
 							<AddIcon onClick={handleCourseOpen} />
 						</ListItemIcon>
 						<ListItemText primary="Add Roadmap" />
 					</ListItem>
-					<ListItem button key="Users">
-						<ListItemIcon>
-							<PeopleIcon />
-						</ListItemIcon>
-						<ListItemText primary="Users" />
-					</ListItem>
+					<Link
+						href="/users"
+						style={{
+							textDecoration: "none",
+							cursor: "pointer",
+						}}
+					>
+						<ListItem button key="Users">
+							<ListItemIcon>
+								<PeopleIcon />
+							</ListItemIcon>
+							<ListItemText primary="Users" />
+						</ListItem>
+					</Link>
 
 					{isMobile ? (
 						console.log("LOl")
