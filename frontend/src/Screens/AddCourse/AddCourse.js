@@ -1,5 +1,5 @@
 import React from "react";
-import ResponsiveDrawer from "../../Components/SideBar/SideBar2";
+import ResponsiveDrawer from "../../Components1/SideBar/SideBar2";
 
 function AddCourse() {
     return (
