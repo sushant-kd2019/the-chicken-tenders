@@ -1,5 +1,5 @@
 import React from "react";
-import ResponsiveDrawer from "../../Components/SideBar/SideBar";
+import ResponsiveDrawer from "../../Components1/SideBar/SideBar";
 
 function Dash() {
 	return (
