@@ -183,3 +183,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTH_USER_MODEL = "Users.User"
 ACCOUNT_FORMS = {'signup': 'Users.forms.CustomSignupForm'}
 ACCOUNT_ADAPTER = "Users.adapters.AccountAdapter"
+#ACCOUNT_SIGNUP_FORM_CLASS = "Users.forms.CustomSignupForm"

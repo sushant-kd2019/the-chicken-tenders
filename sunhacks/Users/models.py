@@ -12,8 +12,8 @@ class User(AbstractUser):
         ('F', 'FEMALE'),
         ('O', 'OTHER'),
     )
-#    id = models.AutoField(primary_key=True)
-    name = CharField(max_length=50,unique=True)#,primary_key=True)
+
+    name = CharField(max_length=50,unique=True)
     first_name = CharField(max_length=30)
     last_name = CharField(max_length=30)
     nationality = CharField(max_length=3)
