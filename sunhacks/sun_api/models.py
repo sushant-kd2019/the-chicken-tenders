@@ -1,10 +1,19 @@
 from django.db import models
-from Users.models import User
-
+from django.urls import reverse
+from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 #class User(User):
 #    pass
+
+class User(AbstractUser):
+    nationality = models.CharField(max_length=3)
+    gender = models.CharField(max_length=1, choices=(('M', 'MALE'),('F', 'FEMALE'),('O', 'OTHER'),))
+    institute = models.CharField(max_length=255)
+    avatar = models.URLField(verbose_name="Display Picture",blank=True)
+    def delete_user(self):
+        return reverse("staff:delete-user")
+
 
 class Roadmap(models.Model):
     creator=models.ForeignKey(User,to_field='username',on_delete=models.CASCADE)
@@ -33,4 +42,7 @@ class Fork(models.Model):
     roadmap_id = models.ForeignKey(Roadmap,on_delete=models.CASCADE)
     progress = models.IntegerField()
     date=models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    
+
+# Create your models here.
+
+

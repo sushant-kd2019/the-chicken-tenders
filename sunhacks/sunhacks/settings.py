@@ -39,17 +39,26 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'knox',
     #'rest_framework.authtoken',
     #'rest_auth',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.github',
-    'Users',
+    #'allauth',
+    #'allauth.account',
+    #'allauth.socialaccount',
+    #'allauth.socialaccount.providers.google',
+    #'allauth.socialaccount.providers.facebook',
+    #'allauth.socialaccount.providers.github',
+    #'Users',
     'sun_api',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        'knox.auth.TokenAuthentication',
+    ]
+}
 
 SITE_ID = 1
 
@@ -117,10 +126,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-    'allauth.account.auth_backends.AuthenticationBackend',
+    #'allauth.account.auth_backends.AuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
-
+'''
 SOCIALACCOUNT_PROVIDERS = \
     {'facebook':
      {'METHOD': 'oauth2',
@@ -151,7 +160,7 @@ SOCIALACCOUNT_PROVIDERS = \
              'access_type': 'online',
          }
      }}
-
+'''
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -170,9 +179,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+AUTH_USER_MODEL = "sun_api.User"
 # All-Auth settings
-
+'''
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
@@ -180,7 +189,8 @@ ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400  # 1 day in seconds
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/accounts/email/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-AUTH_USER_MODEL = "Users.User"
+
 ACCOUNT_FORMS = {'signup': 'Users.forms.CustomSignupForm'}
 ACCOUNT_ADAPTER = "Users.adapters.AccountAdapter"
 #ACCOUNT_SIGNUP_FORM_CLASS = "Users.forms.CustomSignupForm"
+'''

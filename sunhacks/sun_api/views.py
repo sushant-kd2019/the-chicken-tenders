@@ -4,15 +4,21 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import serializers
+from knox.models import AuthToken
+from rest_framework import generics
+from django.contrib.auth import login
+from rest_framework import permissions
+from rest_framework.authtoken.serializers import AuthTokenSerializer
+from knox.views import LoginView as KnoxLoginView
 
 from .serializers import *
 from .models import *
 # Create your views here.
-'''
+
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().order_by('name')
+    queryset = User.objects.all().order_by('username')
     serializer_class = UserSerializer
-'''
+
 
 class RoadmapViewSet(viewsets.ModelViewSet):
     queryset = Roadmap.objects.all().order_by('date')
@@ -44,11 +50,34 @@ class CourseViewSet(viewsets.ModelViewSet):
 class ForkViewSet(viewsets.ModelViewSet):
     queryset = Fork.objects.all().order_by('date')
     serializer_class = ForkSerializer
-    
+'''
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(request.data)
+        fork = serializer.save()
+        f = fork.forker()
+'''
 
-'''
-@api_view(['GET',])
-def search_roadmap(request,argument):
-    if request == "GET":
-        queryset = Roadmap.objects.all().filter(roadmap__icontains=argument)
-'''
+
+# Register API
+class RegisterAPI(generics.GenericAPIView):
+    serializer_class = RegisterSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({
+        "user": UserSerializer(user, context=self.get_serializer_context()).data,
+        "token": AuthToken.objects.create(user)[1]
+        })
+
+class LoginAPI(KnoxLoginView):
+    permission_classes = (permissions.AllowAny,)
+
+    def post(self, request, format=None):
+        serializer = AuthTokenSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        login(request, user)
+        return super(LoginAPI, self).post(request, format=None)
+
