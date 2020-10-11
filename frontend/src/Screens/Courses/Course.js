@@ -1,5 +1,5 @@
 import React from "react";
-import ResponsiveDrawer from "../../Components/SideBar/SideBar";
+import ResponsiveDrawer from "../../Components/SideBarC/SideBarC";
 
 function Dash(props) {
 	return (
@@ -8,7 +8,7 @@ function Dash(props) {
 				backgroundColor: "#F5F6FA",
 			}}
 		>
-			{props.page}
+			<ResponsiveDrawer />
 		</div>
 	);
 }
