@@ -6,6 +6,7 @@ import Dash from "./Screens/Dasboard/Dash";
 import ResponsiveDrawer from "./Components/SideBar/SideBar";
 import Course from "./Components/SideBarC/SideBarC";
 import AddComp from "./Components/AddComp/AddComp";
+import Users from "./Screens/Users/Users";
 import "./App.css";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 				/>
 				<Route path="/course" render={(props) => <Course />} />
 				<Route path="/add" render={(props) => <AddComp />} />
+				<Route path="/users" render={(props) => <Users />} />
 			</Switch>
 		</BrowserRouter>
 	);
