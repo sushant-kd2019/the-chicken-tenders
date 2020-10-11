@@ -20,7 +20,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import ResponsiveDrawer from "../PersonBar/PersonBar";
+import ResponsiveDrawer from "../PersonBarC/PBC";
 import PersonIcon from "@material-ui/icons/Person";
 import AddIcon from "@material-ui/icons/Add";
 import AddComp from "../AddComp/AddComp";
@@ -231,6 +231,7 @@ export default function MiniDrawer() {
 						<ListItemText primary="Logout" />
 					</ListItem>
 				</List>
+
 				<Modal
 					aria-labelledby="transition-modal-title"
 					aria-describedby="transition-modal-description"

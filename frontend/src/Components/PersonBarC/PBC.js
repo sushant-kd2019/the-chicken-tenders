@@ -18,8 +18,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import PersonIcon from "@material-ui/icons/Person";
-import styles from "./person.module.css";
-import Card from "../Card/Card";
+import styles from "./PBC.module.css";
+import Card from "../CourseCard/CourseC";
 import CircleUnchecked from "@material-ui/icons/RadioButtonUnchecked";
 import CheckCircleOutlineOutlinedIcon from "@material-ui/icons/CheckCircleOutlineOutlined";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -241,22 +241,12 @@ function ResponsiveDrawer(props, { data }) {
 				</Hidden>
 			</nav>
 			<main className={styles.main}>
-				<a href="/course" style={{ textDecoration: "none" }}>
-					<Card />
-				</a>
-				<a href="/course" style={{ textDecoration: "none" }}>
-					<Card />
-				</a>
-				<a href="/course" style={{ textDecoration: "none" }}>
-					<Card />
-				</a>
-				<a href="/course" style={{ textDecoration: "none" }}>
-					<Card />
-				</a>
-				<a href="/course" style={{ textDecoration: "none" }}>
-					<Card />
-				</a>
-				{/* <Modal
+				<Card toggleModal={handleOpen} />
+				<Card toggleModal={handleOpen} />
+				<Card toggleModal={handleOpen} />
+				<Card toggleModal={handleOpen} />
+				<Card toggleModal={handleOpen} />
+				<Modal
 					aria-labelledby="transition-modal-title"
 					aria-describedby="transition-modal-description"
 					className={classes.modal}
@@ -458,7 +448,7 @@ function ResponsiveDrawer(props, { data }) {
 							</div>
 						</div>
 					</Fade>
-				</Modal> */}
+				</Modal>
 			</main>
 		</div>
 	);
